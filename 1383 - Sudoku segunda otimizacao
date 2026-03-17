@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        printf("Instancia %d\n", i);
+        
+        int m[9][9];
+        int r = 0;
+
+        for (int j = 0; j < 9 && !r; j++) { 
+            for (int k = 0; k < 9; k++) { 
+                scanf("%d", &m[j][k]);
+                if (m[j][k] < 1 || m[j][k] > 9) {
+                    r = 1; 
+                }
+            }
+        }
+
+        if (r) {
+            printf("NAO\n\n");
+            continue;
+        }
+
+        for (int l = 0; l < 9 && !r; l++) {
+            for (int p = 0; p < 8 && !r; p++) {
+                for (int j = p + 1; j < 9 && !r; j++) {
+                    if (m[l][p] == m[l][j] || m[p][l] == m[j][l]) {
+                        r = 1;
+                    }
+                }
+            }
+        }
+
+        if (r) {
+            printf("NAO\n\n");
+            continue;
+        }
+
+        for (int b = 0; b < 9 && !r; b++) {
+            int v[9], idx = 0;
+            int li = (b / 3) * 3;
+            int ci = (b % 3) * 3;
+
+            for (int i = li; i < li + 3; i++) {
+                for (int j = ci; j < ci + 3; j++) {
+                    v[idx++] = m[i][j];
+                }
+            }
+
+            for (int a = 0; a < 8 && !r; a++) {
+                for (int c = a + 1; c < 9; c++) {
+                    if (v[a] == v[c]) {
+                        r = 1;
+                    }
+                }
+            }
+        }
+
+        if (r) {
+            printf("NAO\n\n");
+        } else {
+            printf("SIM\n\n");
+        }
+    } 
+
+    return 0;
+}

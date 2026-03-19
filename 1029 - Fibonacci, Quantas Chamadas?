@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int n, x, i;
+    long long fib[40];
+    long long calls[40];
+
+    fib[0] = 0;
+    fib[1] = 1;
+    calls[0] = 0;
+    calls[1] = 0;
+
+    for (i = 2; i <= 39; i++) {
+        fib[i] = fib[i-1] + fib[i-2];
+        calls[i] = calls[i-1] + calls[i-2] + 2;
+    }
+
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        scanf("%d", &x);
+        printf("fib(%d) = %lld calls = %lld\n", x, calls[x], fib[x]);
+    }
+
+    return 0;
+}

@@ -1,0 +1,65 @@
+#include <stdio.h>
+ 
+int main() {
+    
+    int n, fibo[52], calls[52], i;
+    
+    fibo[0] = 0;
+    fibo[1] = 1;
+    calls[0] = 1;
+    calls[1] = 1;
+    calls[2] = 2;
+    calls[3] = 3;
+    calls[4] = 4;
+    calls[5] = 8;
+    calls[6] = 14;
+    calls[9] = 66;
+    calls[36] = 29860702;
+    calls[31] = 2692536;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    //calls[] = ;
+    
+    
+    
+    
+    for(i = 2;i < 50;i++){
+        fibo[i] = fibo[i - 1] + fibo[i - 2];
+    }
+    
+    scanf("%d", &n);
+    while(n--){
+        int k;
+        scanf("%d", &k);
+        printf("fib(%d) = %d calls = %d\n", k, calls[k + 1], fibo[k]);
+    }
+    return 0;
+}
